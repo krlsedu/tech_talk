@@ -1,26 +1,21 @@
-use structs::structs::User;
-use structs::structs::UserBestIde;
-use structs::structs::UserLangs;
-use structs::structs::Lang;
+use std::env;
 
 mod basico;
 mod structs;
+mod cmd;
 
 
 fn main() {
-    basico::declaracao_basica::contem_warnings();
-
-    let user = User { user_name: "Carlos Eduardo".to_string() };
-
-    let ide = structs::structs::Ide { name: "Intellij".to_string() };
-
-    let fav_user_ide = UserBestIde { user: user.clone(), ide };
-    fav_user_ide.show_result();
-
-    let mut user_langs = UserLangs {
-        user: user.clone(),
-        langs: vec![Lang { name: "Java".to_string() }]
-    };
-    user_langs.add_lang(Lang { name: "Rust".to_string() });
-    user_langs.show_langs();
+    let args = env::args().collect::<Vec<String>>();
+    println!("{:?}",args);
+    if args.contains(&"-w".to_string()) {
+        basico::declaracao_basica::contem_warnings();
+    }
+    for arg in args {
+        match arg.as_str() {
+            "-w" => basico::declaracao_basica::contem_warnings(),
+            "-s" => structs::structs::struts_basic(),
+            _ => println!("{}",arg)
+        }
+    }
 }

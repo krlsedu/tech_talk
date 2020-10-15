@@ -36,3 +36,19 @@ impl UserLangs {
         println!("As linguagens que {} programa são: {}", self.user.user_name, self.langs.iter().fold(String::new(), |acc, lang| acc + &lang.name + ", "))
     }
 }
+
+pub fn struts_basic(){
+    let user = User { user_name: "Carlos Eduardo".to_string() };
+
+    let ide = Ide { name: "Intellij".to_string() };
+
+    let fav_user_ide = UserBestIde { user: user.clone(), ide };
+    fav_user_ide.show_result();
+
+    let mut user_langs = UserLangs {
+        user: user.clone(),
+        langs: vec![Lang { name: "Java".to_string() }]
+    };
+    user_langs.add_lang(Lang { name: "Rust".to_string() });
+    user_langs.show_langs();
+}
