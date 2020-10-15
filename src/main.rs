@@ -3,12 +3,12 @@ use structs::structs::UserBestIde;
 use structs::structs::UserLangs;
 use structs::structs::Lang;
 
-//mod basico;
+mod basico;
 mod structs;
 
 
 fn main() {
-    //basico::declaracao_basica::contem_warnings();
+    basico::declaracao_basica::contem_warnings();
     let user = User { user_name: "Carlos Eduardo".to_string() };
     let ide = structs::structs::Ide { name: "Intellij".to_string() };
     let fav_user_ide = UserBestIde { user: user.clone(), ide };
