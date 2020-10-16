@@ -1,20 +1,29 @@
 #[derive(Clone)]
+
+#[derive(Serialize, Deserialize)]
 pub struct User {
     pub user_name: String
 }
 
+#[derive(Serialize, Deserialize)]
+pub struct Message{
+    pub message: String
+}
+
+#[derive(Serialize, Deserialize)]
 pub struct Ide {
     pub name: String
 }
 
+#[derive(Serialize, Deserialize)]
 pub struct UserBestIde {
     pub user: User,
     pub ide: Ide,
 }
 
 impl UserBestIde {
-    pub fn show_result(&self) {
-        println!("A ide favorita de {} é {}", self.user.user_name, self.ide.name)
+    pub fn show_result(&self) -> String {
+        format!("Olá {} que bom que vc gosta do(a) {}", self.user.user_name, self.ide.name)
     }
 }
 
