@@ -23,7 +23,7 @@ pub struct UserBestIde {
 
 impl UserBestIde {
     pub fn show_result(&self) -> String {
-        format!("Olá {} que bom que vc gosta do(a) {}", self.user.user_name, self.ide.name)
+        format!("Olá {} você usa {}?", self.user.user_name, self.ide.name)
     }
 }
 
